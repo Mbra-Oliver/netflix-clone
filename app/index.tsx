@@ -1,34 +1,25 @@
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import HorizontalMovieList from "../components/ui/HorizontalMovieList";
 
 export default function Page() {
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>Hello World</Text>
-        <Text style={styles.subtitle}>This is the first page of your app.</Text>
-      </View>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <HorizontalMovieList
+          title={"A regarder pendant de très longue heures"}
+        />
+
+        <HorizontalMovieList title={"Notre selection du jour pour vous"} />
+
+        <HorizontalMovieList title={"Nouveautés sur Netflix"} />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    padding: 24,
-  },
-  main: {
-    flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
-  },
-  title: {
-    fontSize: 64,
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 36,
-    color: "#38434D",
+    backgroundColor: "#000",
   },
 });
