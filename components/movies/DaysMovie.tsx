@@ -26,10 +26,58 @@ const DaysMovie = () => {
           end={{ x: 0, y: 1 }}
           style={[StyleSheet.absoluteFill, styles.gradient]}
         >
+          <View style={{ paddingHorizontal: 10 }}>
+            <View
+              style={{
+                paddingBottom: 20,
+                flexDirection: "row",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: 5,
+              }}
+            >
+              <View style={{ flexDirection: "row", gap: 5 }}>
+                <Text style={{ color: "white" }}>Inquiétant</Text>
+                <View
+                  style={{
+                    width: 5,
+                    height: 5,
+                    backgroundColor: "red",
+                    borderRadius: 100,
+                  }}
+                />
+              </View>
+              <View style={{ flexDirection: "row", gap: 5 }}>
+                <Text style={{ color: "white" }}>Inquiétant</Text>
+                <View
+                  style={{
+                    width: 5,
+                    height: 5,
+                    backgroundColor: "red",
+                    borderRadius: 100,
+                  }}
+                />
+              </View>
+              <View style={{ flexDirection: "row", gap: 5 }}>
+                <Text style={{ color: "white" }}>Inquiétant</Text>
+                <View
+                  style={{
+                    width: 5,
+                    height: 5,
+                    backgroundColor: "red",
+                    borderRadius: 100,
+                  }}
+                />
+              </View>
+              <View style={{ flexDirection: "row", gap: 5 }}>
+                <Text style={{ color: "white" }}>Inquiétant</Text>
+              </View>
+            </View>
+          </View>
           <View
             style={{
               flexDirection: "row",
-              paddingHorizontal: 40,
+              paddingHorizontal: 10,
               justifyContent: "center",
               gap: 10,
             }}
@@ -39,9 +87,11 @@ const DaysMovie = () => {
               <Text>Jouer</Text>
             </Pressable>
 
-            <Pressable style={styles.coverPlayBtn}>
-              <Feather name="play" size={24} color="black" />
-              <Text>Jouer</Text>
+            <Pressable style={styles.coverPlayBtnOutline}>
+              <Feather name="plus" size={24} color="white" />
+              <Text style={{ color: "white", fontWeight: "bold" }}>
+                Ma liste
+              </Text>
             </Pressable>
           </View>
         </LinearGradient>
@@ -76,7 +126,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 5,
-    borderRadius: 5,
+    borderRadius: 2,
+    width: "50%",
+  },
+  coverPlayBtnOutline: {
+    backgroundColor: "gray",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 5,
+    borderRadius: 2,
     width: "50%",
   },
 });
