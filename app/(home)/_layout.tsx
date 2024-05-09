@@ -1,5 +1,5 @@
-import { Redirect, Slot } from "expo-router";
+import { Redirect, Slot, Stack } from "expo-router";
 
 export default function Home() {
-  return <Slot />;
+  return <Stack screenOptions={{ headerShown: false }} />;
 }

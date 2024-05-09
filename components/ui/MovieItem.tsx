@@ -1,13 +1,25 @@
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { router } from "expo-router";
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 const MovieItem = ({ movie }: { movie: any }) => {
+  const onPressMovie = () => {
+    console.warn("ok");
+    router.navigate("/(home)/Player/3");
+  };
+
   return (
-    <View style={styles.movieContainer}>
+    <TouchableOpacity onPress={onPressMovie} style={styles.movieContainer}>
       <ImageBackground
         source={require("./../../assets/default.jpg")}
         style={styles.imageBackground}
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 
