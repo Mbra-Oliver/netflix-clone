@@ -6,7 +6,7 @@ import { router } from "expo-router";
 const videoSource =
   "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
-export default function VideoPlayerBox() {
+export default function VideoPreviewPlayer() {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef<Video>(null);
 
@@ -16,8 +16,6 @@ export default function VideoPlayerBox() {
         // Lecture automatique au chargement
         await videoRef.current.loadAsync({ uri: videoSource }, {}, false);
         await videoRef.current.playAsync();
-        // Passage en mode plein écran
-        await videoRef.current.presentFullscreenPlayer();
       }
     };
 
@@ -53,6 +51,6 @@ const styles = StyleSheet.create({
   },
   video: {
     width: "100%",
-    height: "100%",
+    height: 200,
   },
 });
