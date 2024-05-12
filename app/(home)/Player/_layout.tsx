@@ -14,42 +14,9 @@ import { MaterialIcons } from "@expo/vector-icons";
 import VideoPreviewPlayer from "../../../components/VideoPlayer/videoPreviewPlayer";
 import { router } from "expo-router";
 
-import {
-  MaterialTopTabNavigationEventMap,
-  MaterialTopTabNavigationOptions,
-  createMaterialTopTabNavigator,
-} from "@react-navigation/material-top-tabs";
-import { withLayoutContext } from "expo-router";
-import { TabNavigationState, ParamListBase } from "@react-navigation/native";
-const Tab = createMaterialTopTabNavigator();
-
-const { Navigator } = createMaterialTopTabNavigator();
-
-const MaterialTopTabs = withLayoutContext<
-  MaterialTopTabNavigationOptions,
-  typeof Navigator,
-  TabNavigationState<ParamListBase>,
-  MaterialTopTabNavigationEventMap
->(Navigator);
-
 const Page = () => {
   return (
-    <MaterialTopTabs
-      screenOptions={{
-        tabBarActiveTintColor: "green",
-        tabBarLabelStyle: { fontSize: 14, fontWeight: "bold" },
-        tabBarIndicatorStyle: { backgroundColor: "#1c87ED", height: 2 },
-      }}
-    >
-      <MaterialTopTabs.Screen name="[movieId]" options={{ title: "Détails" }} />
-      <MaterialTopTabs.Screen
-        name="recommandation"
-        options={{ title: "Recommandation" }}
-      />
-    </MaterialTopTabs>
-  );
-  {
-    /*<View style={styles.root}>
+    <View style={styles.root}>
       <View
         style={{
           flexDirection: "row",
@@ -58,7 +25,7 @@ const Page = () => {
           padding: 15,
         }}
       >
-        <Pressable onPress={() => router.back()}>
+        <Pressable onPress={() => router.navigate("/(home)")}>
           <MaterialIcons name="arrow-back" size={24} color="white" />
         </Pressable>
 
@@ -170,8 +137,8 @@ const Page = () => {
           </View>
         </View>
       </ScrollView>
-        </View>*/
-  }
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({

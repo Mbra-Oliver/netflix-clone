@@ -9,14 +9,13 @@ import {
 
 const MovieItem = ({ movie }: { movie: any }) => {
   const onPressMovie = () => {
-    console.warn("ok");
     router.navigate("/(home)/Player/3");
   };
 
   return (
     <TouchableOpacity onPress={onPressMovie} style={styles.movieContainer}>
       <ImageBackground
-        source={require("./../../assets/default.jpg")}
+        source={require("./../../assets/default.jpeg")}
         style={styles.imageBackground}
       />
     </TouchableOpacity>

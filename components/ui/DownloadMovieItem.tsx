@@ -21,7 +21,7 @@ const DownloadMovieItem = ({ movie }: Props) => {
     >
       <View style={styles.movieContainer}>
         <ImageBackground
-          source={require("./../../assets/default.jpg")}
+          source={require("./../../assets/default.jpeg")}
           style={styles.imageBackground}
         />
       </View>

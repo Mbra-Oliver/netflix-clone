@@ -1,4 +1,5 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { Text, Pressable } from "react-native";
 
 interface Props {
@@ -27,6 +28,12 @@ const MovieDetailsButton = ({
         justifyContent: "center",
         borderRadius: 5,
       }}
+      onPress={() =>
+        router.push({
+          pathname: "MoviePlayer/[movieId]",
+          params: { movieId: 3 },
+        })
+      }
     >
       <MaterialCommunityIcons name={icon} size={30} color={iconColor} />
       <Text style={{ color: color, fontSize: 20 }}>{title}</Text>

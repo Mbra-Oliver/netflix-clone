@@ -11,7 +11,7 @@ import { Feather } from "@expo/vector-icons";
 const DaysMovie = () => {
   return (
     <LinearGradient
-      colors={["rgba(165,42,42,0.3)", "rgba(0,0,0,0.1)"]}
+      colors={["rgba(255, 165, 0, 0.3)", "rgba(0, 0, 0, 0.9)"]}
       start={{ x: 0, y: 0.9 }}
       end={{ x: 0, y: 1 }}
       style={[styles.gradient, styles.root]}
@@ -21,7 +21,7 @@ const DaysMovie = () => {
         source={require("./../../assets/day_movie.jpeg")}
       >
         <LinearGradient
-          colors={["rgba(165,42,42,0.3)", "rgba(0,0,0,0.1)"]}
+          colors={["rgba(255, 165, 0, 0.3)", "rgba(0, 0, 0, 0.9)"]}
           start={{ x: 0, y: 0.9 }}
           end={{ x: 0, y: 1 }}
           style={[StyleSheet.absoluteFill, styles.gradient]}
