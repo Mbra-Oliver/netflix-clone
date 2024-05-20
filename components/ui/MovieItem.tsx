@@ -1,4 +1,5 @@
 import { router } from "expo-router";
+import { useEffect } from "react";
 import {
   ImageBackground,
   StyleSheet,
@@ -6,8 +7,12 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import fetchApiRequest from "../../request/axios";
 
 const MovieItem = ({ movie }: { movie: any }) => {
+  //https://api.themoviedb.org/3/movie/movie_id/images
+  const pictureLink = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+
   const onPressMovie = () => {
     router.navigate("/(home)/Player/3");
   };
@@ -15,7 +20,9 @@ const MovieItem = ({ movie }: { movie: any }) => {
   return (
     <TouchableOpacity onPress={onPressMovie} style={styles.movieContainer}>
       <ImageBackground
-        source={require("./../../assets/default.jpeg")}
+        source={{
+          uri: pictureLink,
+        }}
         style={styles.imageBackground}
       />
     </TouchableOpacity>

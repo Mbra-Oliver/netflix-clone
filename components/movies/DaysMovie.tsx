@@ -7,8 +7,55 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Feather } from "@expo/vector-icons";
+import { useEffect, useState } from "react";
+import fetchApiRequest from "../../request/axios";
 
-const DaysMovie = () => {
+// Générer une couleur RGBA aléatoire
+const generateRandomColor = () => {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  const a = Math.random();
+  return `rgba(${r},${g},${b},${a})`;
+};
+const DaysMovie = ({
+  endPointUrl,
+  onColorChange,
+}: {
+  endPointUrl: string;
+  onColorChange: any;
+}) => {
+  const [movie, setMovie] = useState<any>();
+
+  useEffect(() => {
+    async function fetchMovie() {
+      try {
+        const resData = await fetchApiRequest(endPointUrl);
+        setMovie(
+          resData.results[
+            Math.floor(Math.random() * resData.results.length - 1)
+          ]
+        );
+      } catch (error) {
+        console.error("Error fetching movies:", error);
+      }
+    }
+
+    if (endPointUrl) {
+      fetchMovie();
+    }
+
+    handleChangeColor();
+  }, [endPointUrl]);
+
+  const [color, setColor] = useState(generateRandomColor());
+
+  const handleChangeColor = () => {
+    const newColor = generateRandomColor();
+    setColor(newColor);
+    onColorChange(newColor);
+  };
+
   return (
     <LinearGradient
       colors={["rgba(255, 165, 0, 0.3)", "rgba(0, 0, 0, 0.9)"]}
@@ -18,7 +65,9 @@ const DaysMovie = () => {
     >
       <ImageBackground
         style={styles.inner}
-        source={require("./../../assets/day_movie.jpeg")}
+        source={{
+          uri: `https://image.tmdb.org/t/p/w500/${movie?.poster_path}`,
+        }}
       >
         <LinearGradient
           colors={["rgba(255, 165, 0, 0.3)", "rgba(0, 0, 0, 0.9)"]}

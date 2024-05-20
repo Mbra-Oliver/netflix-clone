@@ -1,20 +1,34 @@
 import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import MovieItem from "./MovieItem";
+import { useEffect, useState } from "react";
+import axios from "./../../request/axios";
+import appRequest, { TOKEN } from "../../request/appRequest";
+import fetchApiRequest from "./../../request/axios";
 
-const movies = [
-  { id: 1, title: "Inception" },
-  { id: 2, title: "The Dark Knight" },
-  { id: 3, title: "Interstellar" },
-  { id: 4, title: "The Matrix" },
-  { id: 5, title: "Pulp Fiction" },
-  { id: 6, title: "Fight Club" },
-  { id: 7, title: "The Shawshank Redemption" },
-  { id: 8, title: "Forrest Gump" },
-  { id: 9, title: "The Godfather" },
-  { id: 10, title: "The Lord of the Rings: The Fellowship of the Ring" },
-];
+const HorizontalMovieList = ({
+  title,
+  endPointUrl,
+}: {
+  title: String;
+  endPointUrl?: any;
+}) => {
+  const [movies, setMovies] = useState<any[]>([]);
 
-const HorizontalMovieList = ({ title }: { title: String }) => {
+  useEffect(() => {
+    async function fetchMovies() {
+      try {
+        const resData = await fetchApiRequest(endPointUrl);
+        setMovies(resData.results);
+      } catch (error) {
+        console.error("Error fetching movies:", error);
+      }
+    }
+
+    if (endPointUrl) {
+      fetchMovies();
+    }
+  }, [endPointUrl]);
+
   return (
     <View style={styles.root}>
       <Text
@@ -33,7 +47,7 @@ const HorizontalMovieList = ({ title }: { title: String }) => {
         renderItem={({ item }) => {
           return <MovieItem movie={item} />;
         }}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.id}
         showsHorizontalScrollIndicator={false} // Pour masquer la barre de défilement horizontale
       />
     </View>
