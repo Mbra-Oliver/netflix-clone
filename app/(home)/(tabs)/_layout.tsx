@@ -2,14 +2,15 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import { Tabs } from "expo-router";
 import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
+import { CONFIG_COLORS } from "../../../utils/constantes";
 
 const TabsLayout = () => {
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarInactiveBackgroundColor: "#000",
-        tabBarActiveBackgroundColor: "#000",
+        tabBarInactiveBackgroundColor: CONFIG_COLORS.dark,
+        tabBarActiveBackgroundColor: CONFIG_COLORS.dark,
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "gray",
       }}
