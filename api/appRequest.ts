@@ -6,9 +6,7 @@ const API_KEY = "0a943c2bdd152dd01f9c97421d519284";
 const appMovieRequest = {
   fetchPopularMovies: `popular?api_key=${API_KEY}&language=en-US&page=1`,
   upcomingMovies: `upcoming?api_key=${API_KEY}&language=en-US&page=1`,
-
   nowPlayingMovies: `now_playing?api_key=${API_KEY}&language=en-US&page=1`,
-  fetchUpComingMovies: `upcoming?api_key=${API_KEY}&language=en-US&page=1`,
 };
 
 export default appMovieRequest;

@@ -11,7 +11,10 @@ const Page = () => {
     <SafeAreaView style={styles.root}>
       <NavBar />
 
-      <ScrollView contentContainerStyle={{ gap: 30 }}>
+      <ScrollView
+        contentContainerStyle={{ gap: 30 }}
+        showsVerticalScrollIndicator={false}
+      >
         <Banner endPointUrl={appMovieRequest.fetchPopularMovies} />
 
         <MoviesList
@@ -20,7 +23,7 @@ const Page = () => {
         />
 
         <MoviesList
-          endPointUrl={appMovieRequest.fetchUpComingMovies}
+          endPointUrl={appMovieRequest.upcomingMovies}
           title="Bientôt disponible"
         />
 
@@ -28,6 +31,8 @@ const Page = () => {
           endPointUrl={appMovieRequest.nowPlayingMovies}
           title="Liste de lecture"
         />
+
+        <View style={{ paddingVertical: 2 }} />
       </ScrollView>
     </SafeAreaView>
   );
