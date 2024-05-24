@@ -9,4 +9,7 @@ const appMovieRequest = {
   nowPlayingMovies: `now_playing?api_key=${API_KEY}&language=en-US&page=1`,
 };
 
+export const generateMovieDetailsUrl = (movieId: any): string => {
+  return `${movieId}`;
+};
 export default appMovieRequest;

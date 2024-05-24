@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import LoadingIndicator from "./ui/LoadingIndicator";
 import fetchApiRequest from "../api/request";
 import MovieItem from "./MovieItem";
+import { IMovie } from "../interfaces/IMovie";
 
 interface Props {
   title: string;
@@ -11,7 +12,7 @@ interface Props {
 
 const MoviesList = ({ title, endPointUrl }: Props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [movies, setMovies] = useState<Array<any>>([]);
+  const [movies, setMovies] = useState<Array<IMovie>>([]);
 
   useEffect(() => {
     async function fetchMovies() {
@@ -41,7 +42,7 @@ const MoviesList = ({ title, endPointUrl }: Props) => {
       <FlatList
         horizontal
         data={movies}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => {
           return <MovieItem movie={item} />;
         }}

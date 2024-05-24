@@ -7,8 +7,9 @@ import {
 } from "react-native";
 import React from "react";
 import { router } from "expo-router";
+import { IMovie } from "../interfaces/IMovie";
 
-const MovieItem = ({ movie }: { movie: any }) => {
+const MovieItem = ({ movie }: { movie: IMovie }) => {
   const moviePictureUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
 
   const goDetails = () => {
