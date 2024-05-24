@@ -1,14 +1,52 @@
-import { View, Text, StyleSheet } from "react-native";
-import React from "react";
+import { View, Text, StyleSheet, Alert, FlatList } from "react-native";
+import React, { useEffect, useState } from "react";
+import LoadingIndicator from "./ui/LoadingIndicator";
+import fetchApiRequest from "../api/request";
+import MovieItem from "./MovieItem";
 
 interface Props {
   title: string;
+  endPointUrl: string;
 }
 
-const MoviesList = ({ title }: Props) => {
+const MoviesList = ({ title, endPointUrl }: Props) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [movies, setMovies] = useState<Array<any>>([]);
+
+  useEffect(() => {
+    async function fetchMovies() {
+      setIsLoading(true);
+
+      try {
+        const resData = await fetchApiRequest(endPointUrl);
+        setMovies(resData.results);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        Alert.alert("Erreur de récupération de vos films...");
+      }
+    }
+
+    fetchMovies();
+  }, [endPointUrl]);
+
+  if (isLoading) {
+    return <LoadingIndicator title="Récupération des films..." />;
+  }
+
   return (
     <View style={styles.root}>
       <Text style={styles.title}>{title}</Text>
+
+      <FlatList
+        horizontal
+        data={movies}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => {
+          return <MovieItem movie={item} />;
+        }}
+        showsHorizontalScrollIndicator={false}
+      />
     </View>
   );
 };
