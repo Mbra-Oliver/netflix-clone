@@ -6,12 +6,16 @@ import {
   StyleSheet,
 } from "react-native";
 import React from "react";
+import { router } from "expo-router";
 
 const MovieItem = ({ movie }: { movie: any }) => {
   const moviePictureUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
 
   const goDetails = () => {
-    console.log("Aller sur la page de détails....");
+    router.replace({
+      pathname: "/screens/MovieDetails/[id]",
+      params: { id: movie.id },
+    });
   };
   return (
     <Pressable style={styles.root} onPress={goDetails}>

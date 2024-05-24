@@ -5,6 +5,7 @@ import { CONFIG_COLORS } from "../../../utils/constantes";
 import Banner from "../../../components/ui/Banner";
 import MoviesList from "../../../components/MoviesList";
 import appMovieRequest from "../../../api/appRequest";
+import BlurViewData from "../../../components/BlurViewData";
 
 const Page = () => {
   return (
@@ -32,6 +33,7 @@ const Page = () => {
           title="Liste de lecture"
         />
 
+        {/* <BlurViewData /> */}
         <View style={{ paddingVertical: 2 }} />
       </ScrollView>
     </SafeAreaView>
