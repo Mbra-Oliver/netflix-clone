@@ -1,21 +1,25 @@
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 import React from "react";
 
 const LoadingIndicator = ({ title }: { title: string }) => {
   return (
-    <View style={styles.loadingIndicator}>
+    <View style={styles.root}>
       <ActivityIndicator />
-      <Text style={{ color: "white" }}>{title}</Text>
+      <Text style={styles.text}>{title}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  loadingIndicator: {
+  root: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     gap: 10,
+  },
+
+  text: {
+    color: "white",
   },
 });
 

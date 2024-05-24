@@ -10,41 +10,39 @@ interface Props {
 }
 
 const MoviesList = ({ title, endPointUrl }: Props) => {
-  const [loading, setLoading] = useState(false);
-  const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [movies, setMovies] = useState<Array<any>>([]);
 
   useEffect(() => {
     async function fetchMovies() {
-      setLoading(true);
+      setIsLoading(true);
 
       try {
         const resData = await fetchApiRequest(endPointUrl);
-        setLoading(false);
-        console.log(resData);
         setMovies(resData.results);
+        setIsLoading(false);
       } catch (error) {
-        setLoading(false);
-        Alert.alert(
-          "Une erreur est survenue lors de la recuperation de vos films"
-        );
+        setIsLoading(false);
+        Alert.alert("Erreur de récupération de vos films...");
       }
     }
 
     fetchMovies();
   }, [endPointUrl]);
 
-  if (loading) {
-    return <LoadingIndicator title="Recuperation des films..." />;
+  if (isLoading) {
+    return <LoadingIndicator title="Récupération des films..." />;
   }
 
   return (
     <View style={styles.root}>
       <Text style={styles.title}>{title}</Text>
+
       <FlatList
         horizontal
         data={movies}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }: { item: any }) => {
+        renderItem={({ item }) => {
           return <MovieItem movie={item} />;
         }}
         showsHorizontalScrollIndicator={false}
