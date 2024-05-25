@@ -63,7 +63,7 @@ const Page = () => {
       <MovieDetailsHeader />
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={{ height: 150 }}>
+        <View style={{ height: 200 }}>
           <ImageBackground
             source={{
               uri: moviePictureUrl,

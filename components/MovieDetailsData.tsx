@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { IMovie } from "../interfaces/IMovie";
+import MovieDetailsButton from "./Buttons/MovieDetailsButton";
 
 const productionYear = (dateString: Date) => {
   const date = new Date(dateString);
@@ -8,6 +9,14 @@ const productionYear = (dateString: Date) => {
 };
 
 const MovieDetailsData = ({ movie }: { movie: IMovie }) => {
+  const onPlay = () => {
+    console.log("continuer la lecture");
+  };
+
+  const onDownload = () => {
+    console.log("télécharger");
+  };
+
   return (
     <View style={styles.root}>
       <View style={{ paddingVertical: 15 }}>
@@ -22,17 +31,16 @@ const MovieDetailsData = ({ movie }: { movie: IMovie }) => {
         </Text>
 
         {movie.adult && <Text style={styles.yearLimit}>18+</Text>}
-
-        <Text style={{ color: "white" }}>3 Saisons</Text>
       </View>
 
       <View style={{ gap: 10 }}>
-        {/* <MovieDetailsButton
+        <MovieDetailsButton
           background="#ffffff"
           color="#262626"
           title="Reprendre"
           icon="play"
           iconColor="#262626"
+          action={onPlay}
         />
 
         <MovieDetailsButton
@@ -41,7 +49,8 @@ const MovieDetailsData = ({ movie }: { movie: IMovie }) => {
           title="Télécharger"
           icon="download"
           iconColor="#ffffff"
-        /> */}
+          action={onDownload}
+        />
       </View>
 
       <View style={{ paddingVertical: 20 }}>

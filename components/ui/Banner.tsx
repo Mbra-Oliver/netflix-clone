@@ -1,4 +1,10 @@
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Pressable,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import fetchApiRequest from "../../api/request";
 import LoadingIndicator from "./LoadingIndicator";
@@ -45,13 +51,19 @@ const Banner = ({ endPointUrl }: { endPointUrl: string }) => {
         style={styles.image}
         fadeDuration={100}
       />
+
+      <View style={{ backgroundColor: "pink" }}>
+        <Pressable>
+          <Text>Lecture</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   root: {
-    height: 350,
+    height: 400,
     overflow: "hidden",
     borderRadius: 5,
   },
@@ -59,7 +71,7 @@ const styles = StyleSheet.create({
   image: {
     height: "100%",
     width: "100%",
-    objectFit: "contain",
+    objectFit: "cover",
   },
 });
 
