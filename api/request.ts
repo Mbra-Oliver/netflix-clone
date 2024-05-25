@@ -2,7 +2,7 @@ import { TOKEN } from "./appRequest";
 
 async function fetchApiRequest(url: string) {
   try {
-    const response = await fetch("https://api.themoviedb.org/3/movie/" + url, {
+    const response = await fetch(process.env.EXPO_PUBLIC_API_URL + url, {
       method: "GET",
       headers: {
         accept: "application/json",
