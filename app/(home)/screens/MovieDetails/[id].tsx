@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import MovieDetailsHeader from "../../../../components/MovieDetailsHeader";
 import MovieDetailsData from "../../../../components/MovieDetailsData";
 import { generateMovieDetailsUrl } from "../../../../api/appRequest";
@@ -29,8 +29,6 @@ const Page = () => {
     endPointUrl = generateMovieDetailsUrl(movieId);
   }
 
-  console.log(movieId);
-
   useEffect(() => {
     async function fetchMovie() {
       if (endPointUrl) {
@@ -49,8 +47,6 @@ const Page = () => {
 
     fetchMovie();
   }, [endPointUrl, movieId]);
-
-  console.log(movie);
 
   if (isLoading) {
     return <LoadingIndicator title="Récupération du film..." />;

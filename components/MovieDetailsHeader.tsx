@@ -1,6 +1,6 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import React from "react";
 
 const MovieDetailsHeader = () => {
@@ -10,7 +10,13 @@ const MovieDetailsHeader = () => {
         <MaterialIcons name="arrow-back" size={30} color="white" />
       </Pressable>
 
-      <Pressable onPress={() => {}}>
+      <Pressable
+        onPress={() => {
+          router.push({
+            pathname: "/screens/search",
+          });
+        }}
+      >
         <MaterialIcons name="search" size={30} color="white" />
       </Pressable>
     </View>

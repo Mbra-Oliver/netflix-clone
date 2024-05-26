@@ -53,8 +53,6 @@ const Banner = ({ endPointUrl }: { endPointUrl: string }) => {
     return;
   }
   const moviePictureUrl = `https://image.tmdb.org/t/p/w500/${movie?.poster_path}`;
-
-  console.log(movie);
   return (
     <View style={styles.root}>
       <ImageBackground
@@ -62,7 +60,7 @@ const Banner = ({ endPointUrl }: { endPointUrl: string }) => {
           uri: moviePictureUrl,
         }}
         style={styles.image}
-        fadeDuration={100}
+        fadeDuration={10}
       >
         <View style={styles.bottomBtns}>
           <View style={{ flexDirection: "row", gap: 10 }}>

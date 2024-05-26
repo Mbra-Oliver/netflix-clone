@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
+import { Link, router } from "expo-router";
 const NavBar = () => {
   const handleSearch = () => {
     Alert.alert("Aller vers la recherche....");
@@ -21,7 +22,13 @@ const NavBar = () => {
           style={styles.image}
         />
       </View>
-      <TouchableOpacity onPress={handleSearch}>
+      <TouchableOpacity
+        onPress={() => {
+          router.push({
+            pathname: "/screens/search",
+          });
+        }}
+      >
         <Feather name="search" size={24} color="white" />
       </TouchableOpacity>
     </View>
