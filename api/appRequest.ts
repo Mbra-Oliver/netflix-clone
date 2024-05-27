@@ -7,6 +7,7 @@ const appMovieRequest = {
   fetchPopularMovies: `popular?api_key=${API_KEY}&language=en-US&page=1&size=30`,
   upcomingMovies: `upcoming?api_key=${API_KEY}&language=en-US&page=1`,
   nowPlayingMovies: `now_playing?api_key=${API_KEY}&language=en-US&page=1`,
+  searchMovie: `search/movie`,
 };
 
 export const generateMovieDetailsUrl = (movieId: any): string => {

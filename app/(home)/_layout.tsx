@@ -3,16 +3,16 @@ import React from "react";
 import { Stack } from "expo-router";
 
 const Home = () => {
-  return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen
+  return <Stack screenOptions={{ headerShown: false }} />;
+  {
+    /* <Stack.Screen
         name="screens/search"
         options={{
           presentation: "modal",
         }}
       />
-    </Stack>
-  );
+    </Stack> */
+  }
 };
 
 export default Home;
