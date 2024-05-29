@@ -1,5 +1,6 @@
 import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 import React from "react";
+import { CONFIG_COLORS } from "../../utils/constantes";
 
 const LoadingIndicator = ({ title }: { title: string }) => {
   return (
@@ -16,6 +17,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 10,
+    backgroundColor: CONFIG_COLORS.dark,
   },
 
   text: {
