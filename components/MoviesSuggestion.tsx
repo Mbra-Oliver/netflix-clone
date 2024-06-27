@@ -56,6 +56,7 @@ const MoviesSuggestion = () => {
 const styles = StyleSheet.create({
   root: {
     gap: 10,
+    paddingHorizontal: 15,
   },
   title: {
     fontWeight: "bold",
