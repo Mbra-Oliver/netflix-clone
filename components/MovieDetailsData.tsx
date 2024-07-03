@@ -19,14 +19,12 @@ const MovieDetailsData = ({ movie }: { movie: IMovie }) => {
 
   return (
     <View style={styles.root}>
-      <View style={{ paddingVertical: 15 }}>
-        <Text style={{ fontSize: 22, fontWeight: "bold", color: "white" }}>
-          {movie.title}
-        </Text>
+      <View style={styles.pv15}>
+        <Text style={styles.movieTitle}>{movie.title}</Text>
       </View>
 
       <View style={styles.productionDateInfo}>
-        <Text style={{ color: "white" }}>
+        <Text style={styles.textWhite}>
           {productionYear(movie.release_date)}
         </Text>
 
@@ -53,53 +51,31 @@ const MovieDetailsData = ({ movie }: { movie: IMovie }) => {
         />
       </View>
 
-      <View style={{ paddingVertical: 20 }}>
-        <Text style={{ color: "white", fontSize: 16 }}>{movie.overview}</Text>
+      <View style={styles.pv15}>
+        <Text style={[styles.textWhite, styles.overviewText]}>
+          {movie.overview}
+        </Text>
 
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 10,
-            paddingVertical: 10,
-          }}
-        >
-          <Text style={{ color: "white" }}>Genre:</Text>
+        <View style={styles.genderProdRow}>
+          <Text style={styles.textWhite}>Genre:</Text>
 
-          <View
-            style={{
-              flex: 1,
-              width: "100%",
-              flexDirection: "row",
-              gap: 5,
-              alignItems: "center",
-            }}
-          >
+          <View style={styles.genderProdRowInner}>
             {movie.genres.map((item) => (
-              <Text style={{ color: "#7e7e7e" }} key={item.id}>
+              <Text style={styles.lightGrayText} key={item.id}>
                 {item.name}
               </Text>
             ))}
           </View>
         </View>
 
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 10,
-            paddingVertical: 2,
-            paddingHorizontal: 5,
-            width: "100%",
-          }}
-        >
-          <Text style={{ color: "white" }}>Production:</Text>
+        <View style={styles.genderProdRow}>
+          <Text style={styles.textWhite}>Production:</Text>
 
           <View style={{ flex: 1 }}>
             <Text numberOfLines={3}>
               {movie.production_companies.map((item) => (
                 <Text
-                  style={{ color: "#7e7e7e" }}
+                  style={styles.lightGrayText}
                   key={item.id}
                   numberOfLines={3}
                 >
@@ -117,8 +93,43 @@ const MovieDetailsData = ({ movie }: { movie: IMovie }) => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    marginHorizontal: 15,
   },
 
+  textWhite: {
+    color: "white",
+  },
+  movieTitle: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "white",
+  },
+  pv15: {
+    paddingVertical: 15,
+  },
+
+  overviewText: {
+    fontSize: 16,
+  },
+
+  genderProdRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    paddingVertical: 10,
+  },
+
+  genderProdRowInner: {
+    flex: 1,
+    width: "100%",
+    flexDirection: "row",
+    gap: 5,
+    alignItems: "center",
+  },
+
+  lightGrayText: {
+    color: "#7e7e7e",
+  },
   productionDateInfo: {
     flexDirection: "row",
     alignItems: "center",
